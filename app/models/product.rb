@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :category
+  has_many :line_items
+  has_many :orders, :through => :line_items
 
   #product names must be unique and longer than 3 characters
   validates :name, uniqueness: true
