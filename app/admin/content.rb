@@ -1,5 +1,5 @@
-ActiveAdmin.register Product do
-  permit_params :name, :description, :price, :stock_quantity, :image, :category_id
+ActiveAdmin.register Content do
+  permit_params :about, :contact
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
