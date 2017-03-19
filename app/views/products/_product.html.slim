@@ -1,0 +1,7 @@
+.product
+  h2 = product.name
+  p = product.description
+  p = link_to 'details', product
+  p
+    strong Price: 
+    = number_to_currency product.price
