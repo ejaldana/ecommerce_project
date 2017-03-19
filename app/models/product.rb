@@ -7,4 +7,9 @@ class Product < ApplicationRecord
   validates :name, uniqueness: true
   #columns must be filled out before it can be saved to the db
   validates :name, :description, :price, :stock_quantity, presence: true
+
+  #used to search for a specific product name
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+  end
 end
