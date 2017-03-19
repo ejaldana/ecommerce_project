@@ -1,7 +1,16 @@
+/!div tag with a class of product
 .product
-  h2 = product.name
-  p = product.description
-  p = link_to 'details', product
+  h2 = link_to product.name, product
+  - unless product.image.empty?
+    p = image_tag product.image
   p
     strong Price: 
     = number_to_currency product.price
+  - if full_details
+    p = product.description
+  - else
+    p = link_to 'details', product
+  
+
+  
+  
