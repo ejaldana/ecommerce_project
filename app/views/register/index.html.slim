@@ -1,2 +1,38 @@
-h1 Register#index
-p Find me in app/views/register/index.html.slim
+h1 Register
+p Please fill out the form to register for an account
+
+
+= form_tag(register_path, :method => "get", id: "register-form") do 
+  = label_tag(:username, "Username: ")
+  = text_field_tag :username, params[:username]
+  br 
+  br
+  = label_tag(:password, "Password: ")
+  = password_field_tag :password, params[:password]
+  br 
+  br
+  = label_tag(:name, "Name: ")
+  = text_field_tag :name, params[:name]
+  br 
+  br
+  = label_tag(:address, "Address: ")
+  = text_field_tag :address, params[:address]
+  br 
+  br
+  = label_tag(:city, "City: ")
+  = text_field_tag :city, params[:city]
+  br 
+  br
+  = label_tag(:province, "Province: ")
+  = select_tag(:province, content_tag(:option, 'Select Province', :value=>"") + options_from_collection_for_select(Province.all, :id, :name))
+  br
+  br
+  = label_tag(:postalcode, "Postal Code: ")
+  = text_field_tag :postalcode, params[:postalcode]
+  br 
+  br
+  = label_tag(:email, "Email: ")
+  = email_field_tag :email, params[:email]
+  br 
+  br
+  = submit_tag "Submit", :name => nil

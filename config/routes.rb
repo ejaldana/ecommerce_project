@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'index' => 'products#index', as: 'products'
 
+  get 'register' => 'register#index', as: 'register'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
