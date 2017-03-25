@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'register/index'
+
   get 'about' => 'home#about', as: 'about'
   get 'contact' => 'home#contact', as: 'contact'
 
