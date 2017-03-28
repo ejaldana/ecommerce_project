@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def index
     if params[:search]
       if params[:category_type] == 'all'
-        @products = Product.search(params[:search]).page(params[:page]).per(5)
+        @products = Product.search(params[:search]).order(:name).page(params[:page]).per(5)
       else
         @products = Product.where('category_id LIKE ?', "%#{params[:category_type]}%").search(params[:search]).page(params[:page]).per(5)
       end
@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   #  elsif params[:category_type]
     #  @products = Product.where("category_id = #{params[:category_id]}").page(params[:page]).per(5)
     else
-      @products = Product.page(params[:page]).per(5)
+      @products = Product.order(:name).page(params[:page]).per(5)
     end
   end
 
