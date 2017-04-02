@@ -14,6 +14,8 @@ class RegisterController < ApplicationController
                       province_id: params[:province])
 
       redirect_to :controller => 'home', :action => 'index'
+
+      #flash[:notice] = "You signed up successfully"
     end
   end
 end
