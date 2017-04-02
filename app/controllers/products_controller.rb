@@ -15,8 +15,8 @@ class ProductsController < ApplicationController
         #category = Category.where('name LIKE ?', "%#{params[:search]}%").first
         #@products = Product.where("category_id = #{category.id}").page(params[:page]).per(5)
       #end
-  #  elsif params[:category_type]
-    #  @products = Product.where("category_id = #{params[:category_id]}").page(params[:page]).per(5)
+    elsif params[:category_type]
+      @products = Product.where("category_id = #{params[:category_type]}").page(params[:page]).per(5)
     else
       @products = Product.order(:name).page(params[:page]).per(5)
     end

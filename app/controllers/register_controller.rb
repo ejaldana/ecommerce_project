@@ -1,8 +1,9 @@
 class RegisterController < ApplicationController
   def index
     if params[:username]
+      encrypted_password= Digest::SHA1.hexdigest(params[:password])
       user = User.create(username: params[:username],
-                  password: params[:password])
+                  password: encrypted_password)
 
       customer = Customer.create(name: params[:name],
                       address: params[:address],

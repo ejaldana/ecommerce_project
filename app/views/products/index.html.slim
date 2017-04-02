@@ -1,5 +1,12 @@
 h1 All Products
-
+h3 Product Categories
+ul#selector
+  li = link_to 'Mouse', products_path(category_type: 1)
+  li = link_to 'Keyboard', products_path(category_type: 2)
+  li = link_to 'Monitors', products_path(category_type: 3)
+  li = link_to 'Storage', products_path(category_type: 4)
+  li = link_to 'Components', products_path(category_type: 5)
+  li = link_to 'Networking', products_path(category_type: 6)
 /! renders the products partial
 = render partial: 'product', collection: @products, locals: {full_details: false}
 
