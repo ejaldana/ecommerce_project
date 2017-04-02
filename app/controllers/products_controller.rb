@@ -17,6 +17,10 @@ class ProductsController < ApplicationController
       #end
     elsif params[:category_type]
       @products = Product.where("category_id = #{params[:category_type]}").page(params[:page]).per(5)
+    elsif params[:new]
+      @products = Product.where('created_at > ?', Date.today - 7).page(params[:page]).per(5)
+    elsif params[:updated]
+      @products = Product.where('updated_at > ?', Date.today - 7).page(params[:page]).per(5)
     else
       @products = Product.order(:name).page(params[:page]).per(5)
     end
