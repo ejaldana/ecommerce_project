@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+
+  get 'charges/create'
+
   get 'register/index'
 
   get 'about' => 'home#about', as: 'about'
