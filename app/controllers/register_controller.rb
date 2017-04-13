@@ -5,7 +5,7 @@ class RegisterController < ApplicationController
       user = User.create(username: params[:username],
                   password: encrypted_password)
 
-      customer = Customer.create(name: params[:name],
+      Customer.create(name: params[:name],
                       address: params[:address],
                       city: params[:city],
                       postalcode: params[:postalcode],
