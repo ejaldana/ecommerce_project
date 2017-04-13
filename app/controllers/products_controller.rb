@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
       @products = Product.order(:name).page(params[:page]).per(5)
     end
 
+    # creates a new instance of our OrderItem model for use in our forms
     @order_item = current_order.order_items.new
   end
 
