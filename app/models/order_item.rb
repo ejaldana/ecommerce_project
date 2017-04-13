@@ -29,8 +29,8 @@ private
     end
   end
 
-  def order_present
-    if order.nil?
+  def orrder_present
+    if orrder.nil?
       errors.add(:orrder, "is not a valid order.")
     end
   end

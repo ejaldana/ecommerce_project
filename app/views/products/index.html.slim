@@ -12,8 +12,13 @@ h4 Filter Products
 ul#selector
   li = link_to 'New', products_path(new: 1)
   li = link_to 'Recently Updated', products_path(updated: 2)
+
+.row
+  .col-xs-6
+    .col-xs-offset-3
+      = @products.each do |product|
+        = render "product_row", product: product, order_item: @order_item
   
-/! renders the products partial
-= render partial: 'product', collection: @products, locals: {full_details: false}
+
 
 = paginate @products
