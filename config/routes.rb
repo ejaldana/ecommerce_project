@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   get 'charges/new'
 
   get 'charges/create'
@@ -16,6 +24,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources 'products', only: [:index, :show]
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   # Load the products#index on GET to /
   root to: 'home#index'
